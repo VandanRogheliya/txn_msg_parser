@@ -94,11 +94,10 @@ parser = TextParser(accounts=accounts, categories=custom_categories)
 
 ### Default Model
 
-The package uses `deepseek-r1:8b` by default. You can change this by modifying the `DEFAULT_MODEL` constant:
+The package uses `deepseek-r1:8b` by default. You can change this:
 
 ```python
-from txn_msg_parser import constants
-constants.DEFAULT_MODEL = "your-model-name"
+parser = TextParser(accounts=accounts, model="your-ollama-local-model")
 ```
 
 ### Default Categories

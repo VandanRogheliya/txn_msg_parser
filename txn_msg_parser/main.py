@@ -6,11 +6,11 @@ from txn_msg_parser.prompt import PromptGenFactory
 
 
 class TxnText:
-    sender: str
+    sender: str | None
     text: str
-    date: str
-    type: str
-    id: str
+    date: str | None
+    type: str | None
+    id: str | None
 
 
 class Txn:
@@ -21,8 +21,8 @@ class Txn:
     payer: str | None
     category: str
     full_text: str
-    date: str
-    id: str
+    date: str | None
+    id: str | None
 
     def __init__(self, dictionary):
         self.account = dictionary.get("account")
@@ -34,9 +34,9 @@ class Txn:
 
 
 class TextParser:
-    def __init__(self, accounts: List[str], categories: List[str] = DEFAULT_CATEGORIES):
+    def __init__(self, accounts: List[str], categories: List[str] = DEFAULT_CATEGORIES, model=DEFAULT_MODEL):
         self.prompt_gen = PromptGenFactory()
-        self.ai = AIFactory(model=DEFAULT_MODEL)
+        self.ai = AIFactory(model=model)
         self.categories = categories
         self.accounts = accounts
 
@@ -46,7 +46,12 @@ class TextParser:
         )
         return self.ai.ask(prompt)
 
+    def _validate_text(self, text: TxnText):
+        if not text.text:
+            raise Exception("Text missing")
+
     def parse_text(self, text: TxnText) -> Txn:
+        self._validate_text(text)
         txn_dict = self._convert_txn_text_to_txn(text.__dict__)
         txn = Txn(txn_dict)
         txn.full_text = text.text
