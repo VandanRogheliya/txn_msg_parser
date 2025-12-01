@@ -7,7 +7,6 @@ from txn_msg_parser.constants import DEFAULT_MODEL
 
 
 class AIFactory:
-
     def __init__(self, model: str = DEFAULT_MODEL):
         self.model = model
 
@@ -22,7 +21,8 @@ class AIFactory:
             ],
             options={
                 "num_predict": -1,
-            }
+            },
+            think=False,
         )
 
         content = response["message"]["content"]
