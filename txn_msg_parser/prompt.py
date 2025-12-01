@@ -1,7 +1,7 @@
 import json
 from typing import List
-from constants import OUTPUT_FORMAT
-from training_data.sms_training import sms_training_data
+from txn_msg_parser.constants import OUTPUT_FORMAT
+from txn_msg_parser.training_data.sms_training import sms_training_data
 
 
 class PromptGenFactory:

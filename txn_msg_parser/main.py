@@ -1,8 +1,8 @@
 from typing import List
 
-from ai import AIFactory
-from constants import DEFAULT_CATEGORIES, DEFAULT_MODEL
-from prompt import PromptGenFactory
+from txn_msg_parser.ai import AIFactory
+from txn_msg_parser.constants import DEFAULT_CATEGORIES, DEFAULT_MODEL
+from txn_msg_parser.prompt import PromptGenFactory
 
 
 class TxnText:

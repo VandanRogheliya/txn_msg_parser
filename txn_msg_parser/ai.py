@@ -1,8 +1,9 @@
 import json
-import subprocess
 from typing import Any, Dict
 
-from constants import DEFAULT_MODEL
+import ollama
+
+from txn_msg_parser.constants import DEFAULT_MODEL
 
 
 class AIFactory:
@@ -11,9 +12,20 @@ class AIFactory:
         self.model = model
 
     def ask(self, prompt: str) -> Dict[str, Any]:
-        content = subprocess.check_output(
-            ["ollama", "run", DEFAULT_MODEL, "--think=false", prompt],
-        ).decode("utf-8")
+        response = ollama.chat(
+            model=self.model,
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt,
+                }
+            ],
+            options={
+                "num_predict": -1,
+            }
+        )
+
+        content = response["message"]["content"]
 
         if "```json" in content:
             content = content.split("```json")[1].split("```")[0].strip()

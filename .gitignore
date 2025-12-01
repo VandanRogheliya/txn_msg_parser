@@ -31,3 +31,8 @@ Thumbs.db
 
 # For experiments
 playground*
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
