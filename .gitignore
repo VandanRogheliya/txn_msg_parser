@@ -1,0 +1,33 @@
+# Virtual environments
+venv/
+.venv/
+
+# Compiled Python files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.bak
+*.swo
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+
+# Sensitive information (example)
+.env
+config.ini # If it contains sensitive data
+
+# Operating System generated files
+.DS_Store
+Thumbs.db
+
+# For experiments
+playground*
