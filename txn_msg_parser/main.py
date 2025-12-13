@@ -1,7 +1,7 @@
 from typing import List
 
 from txn_msg_parser.ai import AIFactory
-from txn_msg_parser.constants import DEFAULT_CATEGORIES, DEFAULT_MODEL
+from txn_msg_parser.constants import DEFAULT_CATEGORIES, DEFAULT_HOST, DEFAULT_MODEL
 from txn_msg_parser.prompt import PromptGenFactory
 
 
@@ -34,9 +34,9 @@ class Txn:
 
 
 class TextParser:
-    def __init__(self, accounts: List[str], categories: List[str] = DEFAULT_CATEGORIES, model=DEFAULT_MODEL):
+    def __init__(self, accounts: List[str], categories: List[str] = DEFAULT_CATEGORIES, model=DEFAULT_MODEL, ollama_host=DEFAULT_HOST):
         self.prompt_gen = PromptGenFactory()
-        self.ai = AIFactory(model=model)
+        self.ai = AIFactory(model=model, host=ollama_host)
         self.categories = categories
         self.accounts = accounts
 

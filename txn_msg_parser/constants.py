@@ -1,4 +1,5 @@
 DEFAULT_MODEL = "deepseek-r1:8b"
+DEFAULT_HOST = "http://localhost:11434"
 
 OUTPUT_FORMAT = {
     "account": "string",
