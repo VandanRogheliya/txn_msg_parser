@@ -25,7 +25,7 @@ class Txn:
     id: str | None
 
     def __init__(self, dictionary):
-        self.account = dictionary.get("account")
+        self.account = dictionary.get("account", "")
         self.amount = round(float(dictionary.get("amount")) * 100)
         self.txn_type = dictionary.get("txn_type")
         self.payee = dictionary.get("payee", "")
@@ -39,7 +39,6 @@ class TextParser:
         self.ai = AIFactory(model=model, host=ollama_host)
         self.categories = categories
         self.accounts = accounts
-        # Example amounts must be in rupees (e.g. 165.5); the parser converts to paise.
         self.training_data = training_data or []
 
     def _convert_txn_text_to_txn(self, txn_text: dict) -> dict:
