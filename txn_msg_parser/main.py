@@ -26,7 +26,7 @@ class Txn:
 
     def __init__(self, dictionary):
         self.account = dictionary.get("account")
-        self.amount = int(dictionary.get("amount")) * 100
+        self.amount = round(float(dictionary.get("amount")) * 100)
         self.txn_type = dictionary.get("txn_type")
         self.payee = dictionary.get("payee", "")
         self.payer = dictionary.get("payer", "")
@@ -34,12 +34,13 @@ class Txn:
 
 
 class TextParser:
-    def __init__(self, accounts: List[str], categories: List[str] = DEFAULT_CATEGORIES, model=DEFAULT_MODEL, ollama_host=DEFAULT_HOST, training_data=[]):
+    def __init__(self, accounts: List[str], categories: List[str] = DEFAULT_CATEGORIES, model=DEFAULT_MODEL, ollama_host=DEFAULT_HOST, training_data: List[dict] | None = None):
         self.prompt_gen = PromptGenFactory()
         self.ai = AIFactory(model=model, host=ollama_host)
         self.categories = categories
         self.accounts = accounts
-        self.training_data = training_data
+        # Example amounts must be in rupees (e.g. 165.5); the parser converts to paise.
+        self.training_data = training_data or []
 
     def _convert_txn_text_to_txn(self, txn_text: dict) -> dict:
         prompt = self.prompt_gen.get_sms_txn_parsing_prompt(

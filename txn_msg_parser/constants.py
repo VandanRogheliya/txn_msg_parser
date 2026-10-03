@@ -3,7 +3,7 @@ DEFAULT_HOST = "http://localhost:11434"
 
 OUTPUT_FORMAT = {
     "account": "string",
-    "amount": "int",
+    "amount": "number",
     "txn_type": "debit|credit",
     "payee": "string|null",
     "payer": "string|null",

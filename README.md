@@ -90,6 +90,24 @@ accounts = ["HDFCBK", "SBIUPI"]
 parser = TextParser(accounts=accounts, categories=custom_categories)
 ```
 
+Pass an empty list (`categories=[]`) to skip category parsing.
+
+### Custom Training Data
+
+Override the built-in few-shot examples. Amounts in `output` must be in rupees
+(e.g. `165.5`); the parser converts them to paise (`16550`).
+
+```python
+training_data = [
+    {
+        "input": {"sender": "HDFCBK", "text": "Sent Rs.165.50 To Priya", "date": None, "type": "sms"},
+        "output": {"account": "HDFC", "amount": 165.5, "txn_type": "debit", "payee": "Priya", "payer": None, "category": "Transfer"},
+    },
+]
+
+parser = TextParser(accounts=accounts, training_data=training_data)
+```
+
 ## Configuration
 
 ### Default Model
