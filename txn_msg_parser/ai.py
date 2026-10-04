@@ -1,6 +1,8 @@
+from __future__ import annotations
 import json
 import logging
-from typing import Any, Dict
+from typing import Any
+
 from ollama import Client
 
 from txn_msg_parser.constants import DEFAULT_HOST, DEFAULT_MODEL
@@ -13,7 +15,7 @@ class AIFactory:
         self.model = model
         self.host = host
 
-    def ask(self, prompt: str) -> Dict[str, Any]:
+    def ask(self, prompt: str) -> dict[str, Any]:
         client = Client(host=self.host)
         response = client.chat(
             model=self.model,

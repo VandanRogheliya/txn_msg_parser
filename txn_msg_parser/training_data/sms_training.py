@@ -8,7 +8,7 @@ sms_training_data = [
         },
         "output": {
             "account": "PPOOJA",
-            "amount": 24300,
+            "amount": 243,
             "txn_type": "debit",
             "payee": "Green Garden Cafe",
             "payer": None,
@@ -24,7 +24,7 @@ sms_training_data = [
         },
         "output": {
             "account": "PPOOJA",
-            "amount": 18500,
+            "amount": 185,
             "txn_type": "debit",
             "payee": "Green Garden Cafe",
             "payer": None,
@@ -40,7 +40,7 @@ sms_training_data = [
         },
         "output": {
             "account": "HDFC",
-            "amount": 16500,
+            "amount": 165,
             "txn_type": "debit",
             "payee": "Priya",
             "payer": None,
@@ -56,7 +56,7 @@ sms_training_data = [
         },
         "output": {
             "account": "HDFC",
-            "amount": 31200,
+            "amount": 312,
             "txn_type": "credit",
             "payee": None,
             "payer": "sample-user-7@okaxis",
@@ -72,7 +72,7 @@ sms_training_data = [
         },
         "output": {
             "account": "SBI",
-            "amount": 15000,
+            "amount": 150,
             "txn_type": "debit",
             "payee": "SHARMA ANJALI",
             "payer": None,
@@ -88,7 +88,7 @@ sms_training_data = [
         },
         "output": {
             "account": "SBI",
-            "amount": 845600,
+            "amount": 8456,
             "txn_type": "debit",
             "payee": "NACH",
             "payer": None,
@@ -104,7 +104,7 @@ sms_training_data = [
         },
         "output": {
             "account": "SBI",
-            "amount": 42100,
+            "amount": 421,
             "txn_type": "credit",
             "payee": None,
             "payer": "TECH SOLUTIONS PVT LTD",
@@ -120,7 +120,7 @@ sms_training_data = [
         },
         "output": {
             "account": "SBI",
-            "amount": 500000,
+            "amount": 5000,
             "txn_type": "debit",
             "payee": "ATM Withdrawal",
             "payer": None,
@@ -136,7 +136,7 @@ sms_training_data = [
         },
         "output": {
             "account": "ICICI",
-            "amount": 17800,
+            "amount": 178,
             "txn_type": "credit",
             "payee": None,
             "payer": "MEHTA RAJESH",
@@ -152,7 +152,7 @@ sms_training_data = [
         },
         "output": {
             "account": "ICICI",
-            "amount": 600000,
+            "amount": 6000,
             "txn_type": "debit",
             "payee": "KUMAR PRADEEP",
             "payer": None,
@@ -168,7 +168,7 @@ sms_training_data = [
         },
         "output": {
             "account": "OneCard",
-            "amount": 123400,
+            "amount": 1234,
             "txn_type": "debit",
             "payee": "Bharti Airtel Ltd",
             "payer": None,
@@ -184,7 +184,7 @@ sms_training_data = [
         },
         "output": {
             "account": "OneCard",
-            "amount": 42789,
+            "amount": 427.89,
             "txn_type": "debit",
             "payee": "Zomato Limited",
             "payer": None,
@@ -200,7 +200,7 @@ sms_training_data = [
         },
         "output": {
             "account": "OneCard",
-            "amount": 51200,
+            "amount": 512,
             "txn_type": "debit",
             "payee": "Blinkit",
             "payer": None,
@@ -216,7 +216,7 @@ sms_training_data = [
         },
         "output": {
             "account": "OneCard",
-            "amount": 5278900,
+            "amount": 52789,
             "txn_type": "credit",
             "payee": None,
             "payer": "Payment Received",
