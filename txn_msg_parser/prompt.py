@@ -8,8 +8,8 @@ class PromptGenFactory:
     def get_sms_txn_parsing_prompt(
         self,
         input_dict: dict,
-        categories: list[str],
-        accounts: list[str],
+        categories: list[str] | None,
+        accounts: list[str] | None,
         sms_training_data_arg: list[dict],
     ) -> str:
         examples = sms_training_data_arg if sms_training_data_arg else sms_training_data

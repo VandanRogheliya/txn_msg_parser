@@ -90,7 +90,7 @@ accounts = ["HDFCBK", "SBIUPI"]
 parser = TextParser(accounts=accounts, categories=custom_categories)
 ```
 
-Pass an empty list (`categories=[]`) to skip category parsing. Likewise, pass `accounts=[]` to skip account parsing.
+Pass an empty list (`categories=[]`) to skip category parsing. Likewise, omit `accounts` (or pass `accounts=[]`) to skip account parsing.
 
 ### Custom Training Data
 

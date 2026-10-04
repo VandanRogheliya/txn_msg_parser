@@ -26,7 +26,7 @@ class Txn:
 
     def __init__(self, dictionary):
         self.account = dictionary.get("account", "")
-        self.amount = round(float(dictionary.get("amount")) * 100)
+        self.amount = round(float(str(dictionary.get("amount")).replace(",", "")) * 100)
         self.txn_type = dictionary.get("txn_type")
         self.payee = dictionary.get("payee", "")
         self.payer = dictionary.get("payer", "")
@@ -34,7 +34,7 @@ class Txn:
 
 
 class TextParser:
-    def __init__(self, accounts: List[str], categories: List[str] = DEFAULT_CATEGORIES, model=DEFAULT_MODEL, ollama_host=DEFAULT_HOST, training_data: List[dict] | None = None):
+    def __init__(self, accounts: List[str] | None = None, categories: List[str] = DEFAULT_CATEGORIES, model=DEFAULT_MODEL, ollama_host=DEFAULT_HOST, training_data: List[dict] | None = None):
         self.prompt_gen = PromptGenFactory()
         self.ai = AIFactory(model=model, host=ollama_host)
         self.categories = categories
