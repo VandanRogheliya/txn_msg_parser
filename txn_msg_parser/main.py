@@ -1,4 +1,4 @@
-from typing import List
+from __future__ import annotations
 
 from txn_msg_parser.ai import AIFactory
 from txn_msg_parser.constants import DEFAULT_CATEGORIES, DEFAULT_HOST, DEFAULT_MODEL
@@ -34,7 +34,14 @@ class Txn:
 
 
 class TextParser:
-    def __init__(self, accounts: List[str] | None = None, categories: List[str] = DEFAULT_CATEGORIES, model=DEFAULT_MODEL, ollama_host=DEFAULT_HOST, training_data: List[dict] | None = None):
+    def __init__(
+        self,
+        accounts: list[str] | None = None,
+        categories: list[str] = DEFAULT_CATEGORIES,
+        model=DEFAULT_MODEL,
+        ollama_host=DEFAULT_HOST,
+        training_data: list[dict] | None = None,
+    ):
         self.prompt_gen = PromptGenFactory()
         self.ai = AIFactory(model=model, host=ollama_host)
         self.categories = categories
@@ -60,6 +67,6 @@ class TextParser:
         txn.id = text.id
         return txn
 
-    def parse_texts(self, texts: List[TxnText]) -> List[Txn]:
+    def parse_texts(self, texts: list[TxnText]) -> list[Txn]:
         txns = [self.parse_text(text) for text in texts]
         return txns

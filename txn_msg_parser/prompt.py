@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json
+
 from txn_msg_parser.constants import OUTPUT_FORMAT
 from txn_msg_parser.training_data.sms_training import sms_training_data
 
@@ -35,12 +36,16 @@ class PromptGenFactory:
         }
         output_format_json = json.dumps(output_format)
         context_items = [
-            f'Account -> From "sender" key. Valid values: {accounts}' if accounts else None,
+            f'Account -> From "sender" key. Valid values: {accounts}'
+            if accounts
+            else None,
             'Amount -> From "text" key. Keep it as a number with decimals. Examples: 100.5 -> 100.5, 145 -> 145, 42,523.47 -> 42523.47',
             'Transaction type -> From "text" key. Valid values: "credit", "debit"',
             'Payee -> From "text" key, String about who is receiving payment. Null for credit type',
             'Payer -> From "text" key, String about who sent the payment. Null for debit type',
-            f'Category -> From "text" key, One word category for txn. Valid categories: {categories}' if categories else None,
+            f'Category -> From "text" key, One word category for txn. Valid categories: {categories}'
+            if categories
+            else None,
         ]
         context = "\n".join(
             f"{i}. {item}"
